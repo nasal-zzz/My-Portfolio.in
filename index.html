@@ -324,12 +324,6 @@
     // Clear previous result messages
     result.innerHTML = "";
 
-    // Check for form validity
-    if (!form.checkValidity()) {
-        result.innerHTML = "Please fill out all required fields correctly.";
-        return;
-    }
-
     // Validate specific fields if needed
     const name = form.querySelector('#name').value.trim();
     const email = form.querySelector('#email').value.trim();
@@ -347,6 +341,12 @@
         result.innerHTML = "Message should be at least 10 characters long.";
         return;
     }
+		     // Check for form validity
+    if (!form.checkValidity()) {
+        result.innerHTML = "Please fill out all required fields correctly.";
+        return;
+    }
+
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
